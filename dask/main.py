@@ -14,3 +14,13 @@ df = dd.read_csv("train.csv")
 d_arr3 = df.to_dask_array()
 # print(f"The Complete DataFrame is: {df}");
 print(f"The Dask Array is: {d_arr3}");
+
+mean1 = d_arr.mean().compute()
+mean2 = d_arr2.mean().compute()
+# mean3 = d_arr3.mean().compute() --> Value Error
+
+print(f"The mean-01 is: {mean1}");
+print(f"The mean-02 is: {mean2}");
+# print(f"The mean-01 is: {mean3}");
+
+d_arr.to_hdf5('data.h5', '/data')
